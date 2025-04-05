@@ -685,7 +685,7 @@ MonoBehaviour:
   sleep: 100
   popularity: 0
   skill: 0
-  money: 0
+  money: 10
   currentTimeOfDay: 0
   day: 0
 --- !u!114 &1213607464
