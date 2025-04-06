@@ -54,6 +54,7 @@ public class FoodMenu : MonoBehaviour
             GameManager.instance.money -= price;
             GameManager.instance.hunger += hungerFill;
             GameManager.instance.happiness += happinessFill;
+            GameManager.instance.health += hungerFill + happinessFill;
         }
     }
 }

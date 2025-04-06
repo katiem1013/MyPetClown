@@ -23,8 +23,12 @@ public class GameManager : MonoBehaviour
     public float currentTimeOfDay;
     public float day = 1;
 
-    // starting stats
-    private float startHappiness, startHealth, startHunger, startHygiene, startSleep;
+    [Header("Starting Care Stats")]
+    public float startHappiness;
+    public float startHealth;
+    public float startHunger;
+    public float startHygiene;
+    public float startSleep;
 
     private void Awake()
     {
