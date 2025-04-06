@@ -5,12 +5,14 @@ using UnityEngine;
 public class ClownManager : MonoBehaviour
 {
     [Header("Stat Decrease")]
+    public float happinessDecrease;
     public float healthDecrease;
     public float hungerDecrease;
     public float hygieneDecrease;
     public float sleepDecrease;
 
     [Header("Decrease Times")]
+    public float happinessDecreaseTime;
     public float healthDecreaseTime;
     public float hungerDecreaseTime;
     public float hygieneDecreaseTime;
@@ -19,6 +21,7 @@ public class ClownManager : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
+        StartCoroutine("HappinessDecrease");
         StartCoroutine("HealthDecrease");
         StartCoroutine("HungerDecrease");
         StartCoroutine("HygieneDecrease");
@@ -26,6 +29,16 @@ public class ClownManager : MonoBehaviour
     }
 
     //coroutine decleration
+    IEnumerator HappinessDecrease()
+    {
+
+        while (GameManager.instance.happiness > 0)
+        {
+            GameManager.instance.happiness -= happinessDecrease;
+            yield return new WaitForSeconds(happinessDecreaseTime);
+        }
+    }
+
     IEnumerator HealthDecrease()
     {
 
@@ -35,6 +48,7 @@ public class ClownManager : MonoBehaviour
             yield return new WaitForSeconds(healthDecreaseTime);
         }
     }
+
     IEnumerator HungerDecrease()
     {
         while (GameManager.instance.hunger > 0)

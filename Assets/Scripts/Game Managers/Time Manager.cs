@@ -13,11 +13,6 @@ public class TimeManager : MonoBehaviour
     float totalTimePassed = 0;
     bool newDay = false;
 
-    private void Start()
-    {
-        GameManager.instance.day = 1;
-    }
-
     // Update is called once per frame
     void Update()
     {

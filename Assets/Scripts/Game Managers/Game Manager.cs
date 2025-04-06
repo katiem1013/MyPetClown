@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [Header("Care Stats")]
+    public float happiness;
     public float health;
     public float hunger;
     public float hygiene;
@@ -22,11 +23,33 @@ public class GameManager : MonoBehaviour
     public float currentTimeOfDay;
     public float day = 1;
 
+    // starting stats
+    private float startHappiness, startHealth, startHunger, startHygiene, startSleep;
+
     private void Awake()
     {
         if (instance == null)
             instance = this;
         else
             Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        startHappiness = happiness;
+        startHealth = health;
+        startHunger = hunger;
+        startHygiene = hygiene;
+        startSleep = sleep;
+    }
+
+    private void Update()
+    {
+        if (happiness > startHappiness) {happiness = startHappiness;}
+        if (health > startHealth) { health = startHealth; }
+        if (hunger > startHunger) { hunger = startHunger; }
+        if (hygiene > startHygiene) { hygiene = startHygiene; }
+        if (sleep > startSleep) { sleep = startSleep; }
+
     }
 }
