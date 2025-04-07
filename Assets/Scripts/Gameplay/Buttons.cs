@@ -18,16 +18,21 @@ public class Buttons : MonoBehaviour
 
     public void FeedMenu()
     {
-        if (!foodMenuActive)
+        if (!sleepActive)
         {
-            foodMenuActive = true; 
-            foodMenu.SetActive(true); 
+            if (!foodMenuActive)
+            {
+                foodMenuActive = true; 
+                foodMenu.SetActive(true); 
+            }
+
+            else if (foodMenuActive)
+            { 
+                foodMenuActive = false;
+                foodMenu.SetActive(false); 
+            }
         }
-        else if (foodMenuActive)
-        { 
-            foodMenuActive = false;
-            foodMenu.SetActive(false); 
-        }
+       
     }
 
     public void StatsMenu()
@@ -46,26 +51,32 @@ public class Buttons : MonoBehaviour
 
     public void Perform()
     {
-        if (GameManager.instance.sleep <= 0 || GameManager.instance.hygiene <= 0 || GameManager.instance.health <= 0 || GameManager.instance.hunger <= 0 || GameManager.instance.happiness <= 0)
+        if (!sleepActive)
         {
-            float moneyGained = ((GameManager.instance.skill / (GameManager.instance.sleep + GameManager.instance.health + GameManager.instance.hygiene + GameManager.instance.hunger)) * GameManager.instance.happiness) * 5;
-            GameManager.instance.money += Mathf.Ceil(moneyGained);
-            GameManager.instance.sleep -= Mathf.Ceil(moneyGained);
+            if (GameManager.instance.sleep <= 0 || GameManager.instance.hygiene <= 0 || GameManager.instance.health <= 0 || GameManager.instance.hunger <= 0 || GameManager.instance.happiness <= 0)
+            {
+                float moneyGained = ((GameManager.instance.skill / (GameManager.instance.sleep + GameManager.instance.health + GameManager.instance.hygiene + GameManager.instance.hunger)) * GameManager.instance.happiness) * 5;
+                GameManager.instance.money += Mathf.Ceil(moneyGained);
+                GameManager.instance.sleep -= Mathf.Ceil(moneyGained);
+            }
         }
     }
 
     public void Wash()
     {
-        if (!washActive)
+        if (!sleepActive)
         {
-            washActive = true;
-            wash.SetActive(true);
-        }
+            if (!washActive)
+            {
+                washActive = true;
+                wash.SetActive(true);
+            }
 
-        else if (washActive)
-        {
-            washActive = false;
-            wash.SetActive(false);
+            else if (washActive)
+            {
+                washActive = false;
+                wash.SetActive(false);
+            }
         }
     }
 
@@ -83,6 +94,4 @@ public class Buttons : MonoBehaviour
             sleep.SetActive(false);
         }
     }
-
-   
 }
