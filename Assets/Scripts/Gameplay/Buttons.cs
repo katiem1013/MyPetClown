@@ -7,10 +7,14 @@ public class Buttons : MonoBehaviour
     [Header("References")]
     public GameObject foodMenu;
     public GameObject statsMenu;
+    public GameObject wash;
+    public GameObject sleep;
 
     [Header("Menus")]
     public bool foodMenuActive = false;
     public bool statsMenuActive = false;
+    public bool washActive = false;
+    public bool sleepActive = false;
 
     public void FeedMenu()
     {
@@ -48,6 +52,37 @@ public class Buttons : MonoBehaviour
             GameManager.instance.money += Mathf.Ceil(moneyGained);
             GameManager.instance.sleep -= Mathf.Ceil(moneyGained);
         }
-        
     }
+
+    public void Wash()
+    {
+        if (!washActive)
+        {
+            washActive = true;
+            wash.SetActive(true);
+        }
+
+        else if (washActive)
+        {
+            washActive = false;
+            wash.SetActive(false);
+        }
+    }
+
+    public void Sleep()
+    {
+        if (!sleepActive)
+        {
+            sleepActive = true;
+            sleep.SetActive(true);
+        }
+
+        else if (sleepActive)
+        {
+            sleepActive = false; 
+            sleep.SetActive(false);
+        }
+    }
+
+   
 }
