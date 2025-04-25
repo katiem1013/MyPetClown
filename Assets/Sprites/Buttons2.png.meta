@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d3854fabe000cda4ab8f58c1a6e3a8e8
+guid: 45d0944c0d9b6944db14c9d9045f2cbe
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BaseClown_0
+      name: Buttons2_0
       rect:
         serializedVersion: 2
-        x: 44
-        y: 24
-        width: 584
-        height: 746
+        x: 59
+        y: 643
+        width: 409
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,8 +150,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d8077cefa0f03245b5f48cb4a294a58
-      internalID: 1236601875
+      spriteID: b466cf6e7bd1da94bb4036d8317a9351
+      internalID: -1255233964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buttons2_1
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 647
+        width: 409
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf7df0b9dfd8a0547825fc01cdef2608
+      internalID: -1298087698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buttons2_2
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 420
+        width: 409
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2325887641c769a4693fb452feccbb58
+      internalID: 797451967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buttons2_3
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 172
+        width: 409
+        height: 399
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d5416d5efbe00d4da7f7e7afc849f33
+      internalID: 1912143397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Buttons2_4
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 175
+        width: 409
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 303a16a39a153ed449ca9c80cd3c1d60
+      internalID: 872956006
       vertices: []
       indices: 
       edges: []
@@ -167,7 +251,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BaseClown_0: 1236601875
+      Buttons2_0: -1255233964
+      Buttons2_1: -1298087698
+      Buttons2_2: 797451967
+      Buttons2_3: 1912143397
+      Buttons2_4: 872956006
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

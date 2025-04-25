@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
     public float startHygiene;
     public float startSleep;
 
+    [Header("ClowmImages")]
+    public SpriteRenderer clownSprite;
+    public Sprite baseClown,happyClown, sadClown;
+   
+
     private void Awake()
     {
         if (instance == null)
@@ -54,6 +59,19 @@ public class GameManager : MonoBehaviour
         if (hunger > startHunger) { hunger = startHunger; }
         if (hygiene > startHygiene) { hygiene = startHygiene; }
         if (sleep > startSleep) { sleep = startSleep; }
+        ClownImages();
+    }
 
+    public void ClownImages()
+    {
+        float averageClownFeeling = (happiness + health + hunger + hygiene + sleep) / 5;
+        print(averageClownFeeling);
+
+        if (averageClownFeeling > 95f)
+            clownSprite.sprite = happyClown;
+        else if (averageClownFeeling > 50f)
+            clownSprite.sprite = baseClown;
+        else
+            clownSprite.sprite = sadClown;
     }
 }

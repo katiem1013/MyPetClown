@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d3854fabe000cda4ab8f58c1a6e3a8e8
+guid: 774cbacd5c885ea4abc9533adbaed808
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BaseClown_0
+      name: FoodIcons3_0
       rect:
         serializedVersion: 2
-        x: 44
-        y: 24
-        width: 584
-        height: 746
+        x: 59
+        y: 643
+        width: 409
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,8 +150,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d8077cefa0f03245b5f48cb4a294a58
-      internalID: 1236601875
+      spriteID: 82ec9b34fab15b54ba53680aec6baaa3
+      internalID: 1069628126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodIcons3_1
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 647
+        width: 409
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f40928f8184573243b96bbb2d27412c0
+      internalID: 1803854136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodIcons3_2
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 420
+        width: 409
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d70ceea05c9b1a44a8dcda991231d159
+      internalID: -1148663409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodIcons3_3
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 171
+        width: 409
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5000ed88f6c493a499cb21dc3b911207
+      internalID: -1330855120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FoodIcons3_4
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 175
+        width: 409
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b513fbd3725a3cc41a9e7c734ff7d6ee
+      internalID: -1304415151
       vertices: []
       indices: 
       edges: []
@@ -167,7 +251,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BaseClown_0: 1236601875
+      FoodIcons3_0: 1069628126
+      FoodIcons3_1: 1803854136
+      FoodIcons3_2: -1148663409
+      FoodIcons3_3: -1330855120
+      FoodIcons3_4: -1304415151
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
