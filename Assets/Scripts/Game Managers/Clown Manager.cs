@@ -68,7 +68,7 @@ public class ClownManager : MonoBehaviour
     }
     IEnumerator SleepDecrease()
     {
-        while (GameManager.instance.sleep > 0)
+        while (GameManager.instance.sleep > 0 && Buttons.instance.sleepActive == true)
         {
             GameManager.instance.sleep -= sleepDecrease;
             yield return new WaitForSeconds(sleepDecreaseTime);

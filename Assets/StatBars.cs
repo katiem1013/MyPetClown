@@ -7,7 +7,6 @@ public class StatBars : MonoBehaviour
 {
     [Header("References")]
     public Image fillBar;
-    public Sprite clownSprite;
 
     [Header("Colours")]
     public Color fullColour;
@@ -21,10 +20,6 @@ public class StatBars : MonoBehaviour
     public bool hygiene;
     public bool sleep;
     public bool skill;
-
-    [Header("ClowmImages")]
-    public Sprite baseClown;
-    public Sprite happyClown, sadClown;
 
     // Start is called before the first frame update
     void Start()

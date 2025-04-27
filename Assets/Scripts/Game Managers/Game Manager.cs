@@ -30,10 +30,16 @@ public class GameManager : MonoBehaviour
     public float startHygiene;
     public float startSleep;
 
-    [Header("ClowmImages")]
+    [Header("Clowm Images")]
     public SpriteRenderer clownSprite;
     public Sprite baseClown,happyClown, sadClown;
-   
+
+    [Header("Clowm Dirt")]
+    public GameObject clownDirt1;
+    public GameObject clownDirt2;
+    public GameObject clownDirt3;   
+    public GameObject clownDirt4;
+
 
     private void Awake()
     {
@@ -54,18 +60,15 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (happiness > startHappiness) {happiness = startHappiness;}
-        if (health > startHealth) { health = startHealth; }
-        if (hunger > startHunger) { hunger = startHunger; }
-        if (hygiene > startHygiene) { hygiene = startHygiene; }
-        if (sleep > startSleep) { sleep = startSleep; }
+        StatBlock();
+
         ClownImages();
+        ClownDirt();
     }
 
     public void ClownImages()
     {
         float averageClownFeeling = (happiness + health + hunger + hygiene + sleep) / 5;
-        print(averageClownFeeling);
 
         if (averageClownFeeling > 95f)
             clownSprite.sprite = happyClown;
@@ -73,5 +76,65 @@ public class GameManager : MonoBehaviour
             clownSprite.sprite = baseClown;
         else
             clownSprite.sprite = sadClown;
+    }
+
+    public void ClownDirt()
+    {
+        if(hygiene < 90)
+        {
+            clownDirt1.SetActive(true);
+            clownDirt2.SetActive(false);
+            clownDirt3.SetActive(false);
+            clownDirt4.SetActive(false);
+        }
+
+        if (hygiene < 75)
+        {
+            clownDirt1.SetActive(true);
+            clownDirt2.SetActive(true);
+            clownDirt3.SetActive(false);
+            clownDirt4.SetActive(false);
+        }
+
+        if (hygiene < 50)
+        {
+            clownDirt1.SetActive(true);
+            clownDirt2.SetActive(true);
+            clownDirt3.SetActive(true);
+            clownDirt4.SetActive(false);
+        }
+
+        if (hygiene < 25)
+        {
+            clownDirt1.SetActive(true);
+            clownDirt2.SetActive(true);
+            clownDirt3.SetActive(true);
+            clownDirt4.SetActive(true);
+        }
+
+        else
+        {
+            clownDirt1.SetActive(false);
+            clownDirt2.SetActive(false);
+            clownDirt3.SetActive(false);
+            clownDirt4.SetActive(false);
+        }
+    }
+
+    public void StatBlock()
+    {
+        // stops stats going below 0
+        if (happiness < 0) { happiness = 0; }
+        if (health < 0) { health = 0; }
+        if (hunger < 0) { hunger = 0; }
+        if (hygiene < 0) { hygiene = 0; }
+        if (sleep < 0) { sleep = 0; }
+
+        // stops stats going above their max
+        if (happiness > startHappiness) { happiness = startHappiness; }
+        if (health > startHealth) { health = startHealth; }
+        if (hunger > startHunger) { hunger = startHunger; }
+        if (hygiene > startHygiene) { hygiene = startHygiene; }
+        if (sleep > startSleep) { sleep = startSleep; }
     }
 }

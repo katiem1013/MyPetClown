@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Buttons : MonoBehaviour
 {
+    public static Buttons instance;
+
     [Header("References")]
     public GameObject foodMenu;
     public GameObject statsMenu;
     public GameObject wash;
     public GameObject sleep;
+    public GameObject clown;
 
     [Header("Menus")]
     public bool foodMenuActive = false;
@@ -53,11 +56,13 @@ public class Buttons : MonoBehaviour
     {
         if (!sleepActive)
         {
-            if (GameManager.instance.sleep <= 0 || GameManager.instance.hygiene <= 0 || GameManager.instance.health <= 0 || GameManager.instance.hunger <= 0 || GameManager.instance.happiness <= 0)
+            if (GameManager.instance.sleep >= 0 && GameManager.instance.hygiene >= 0 && GameManager.instance.health >= 0 && GameManager.instance.hunger >= 0 && GameManager.instance.happiness >= 0)
             {
                 float moneyGained = ((GameManager.instance.skill / (GameManager.instance.sleep + GameManager.instance.health + GameManager.instance.hygiene + GameManager.instance.hunger)) * GameManager.instance.happiness) * 5;
                 GameManager.instance.money += Mathf.Ceil(moneyGained);
                 GameManager.instance.sleep -= Mathf.Ceil(moneyGained);
+
+                print(moneyGained);
             }
         }
     }
