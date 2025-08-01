@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
@@ -12,15 +13,28 @@ public class Buttons : MonoBehaviour
     public GameObject wash;
     public GameObject sleep;
     public GameObject clown;
+    public GameObject pauseMenu;
 
     [Header("Menus")]
     public bool foodMenuActive = false;
     public bool statsMenuActive = false;
     public bool washActive = false;
     public bool sleepActive = false;
+    public bool pauseActive = false;
+
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     public void FeedMenu()
     {
+        SoundManagement.instance.UIClicking();
+
         if (!sleepActive)
         {
             if (!foodMenuActive)
@@ -40,6 +54,8 @@ public class Buttons : MonoBehaviour
 
     public void StatsMenu()
     {
+        SoundManagement.instance.UIClicking();
+
         if (!statsMenuActive) 
         { 
             statsMenuActive = true; 
@@ -54,6 +70,8 @@ public class Buttons : MonoBehaviour
 
     public void Perform()
     {
+        SoundManagement.instance.UIClicking();
+
         if (!sleepActive)
         {
             if (GameManager.instance.sleep >= 0 && GameManager.instance.hygiene >= 0 && GameManager.instance.health >= 0 && GameManager.instance.hunger >= 0 && GameManager.instance.happiness >= 0)
@@ -69,6 +87,8 @@ public class Buttons : MonoBehaviour
 
     public void Wash()
     {
+        SoundManagement.instance.UIClicking();
+
         if (!sleepActive)
         {
             if (!washActive)
@@ -87,6 +107,8 @@ public class Buttons : MonoBehaviour
 
     public void Sleep()
     {
+        SoundManagement.instance.UIClicking();
+
         if (!sleepActive)
         {
             sleepActive = true;
@@ -98,5 +120,34 @@ public class Buttons : MonoBehaviour
             sleepActive = false; 
             sleep.SetActive(false);
         }
+    }
+
+    public void PauseMenu()
+    {
+        SoundManagement.instance.UIClicking();
+
+        if (!pauseActive)
+        {
+            pauseActive = true;
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
+
+        else if (pauseActive)
+        {
+            pauseActive = false;
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1;
+        }
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

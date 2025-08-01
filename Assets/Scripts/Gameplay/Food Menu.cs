@@ -46,15 +46,20 @@ public class FoodMenu : MonoBehaviour
     {
         if (GameManager.instance.money < price)
         {
+            SoundManagement.instance.Denied();
             print("Not Enough Funds");
+            
         }
 
         else if (GameManager.instance.money >= price)
         {
+            SoundManagement.instance.BitingSound();
             GameManager.instance.money -= price;
             GameManager.instance.hunger += hungerFill;
             GameManager.instance.happiness += happinessFill;
             GameManager.instance.health += hungerFill + happinessFill;
+            GameManager.instance.HeartClown();
+            
         }
     }
 }

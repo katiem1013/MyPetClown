@@ -40,6 +40,7 @@ public class CleanPet : MonoBehaviour
         while (GameManager.instance.happiness > 0)
         {
             GameManager.instance.hygiene += 10;
+            GameManager.instance.HeartClown();
             yield return new WaitForSeconds(1);
         }
     }

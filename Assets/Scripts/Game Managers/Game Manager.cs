@@ -40,6 +40,11 @@ public class GameManager : MonoBehaviour
     public GameObject clownDirt3;   
     public GameObject clownDirt4;
 
+    [Header("Particle Systems")]
+    public ParticleSystem happyPS;
+    public ParticleSystem sadPS;
+    public ParticleSystem heartPS;
+
 
     private void Awake()
     {
@@ -64,6 +69,21 @@ public class GameManager : MonoBehaviour
 
         ClownImages();
         ClownDirt();
+    }
+
+    public void SadClown()
+    {
+        sadPS.Play();
+    }  
+    
+    public void HappyClown()
+    {
+        happyPS.Play();
+    }
+
+    public void HeartClown()
+    {
+        heartPS.Play();
     }
 
     public void ClownImages()
@@ -112,7 +132,7 @@ public class GameManager : MonoBehaviour
             clownDirt4.SetActive(true);
         }
 
-        else
+        if (hygiene > 90)
         {
             clownDirt1.SetActive(false);
             clownDirt2.SetActive(false);

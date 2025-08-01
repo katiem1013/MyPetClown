@@ -18,7 +18,6 @@ public class ClownManager : MonoBehaviour
     public float hygieneDecreaseTime;
     public float sleepDecreaseTime;
 
-    // Update is called once per frame
     void Start()
     {
         StartCoroutine("HappinessDecrease");
@@ -28,6 +27,7 @@ public class ClownManager : MonoBehaviour
         StartCoroutine("SleepDecrease");
     }
 
+
     //coroutine decleration
     IEnumerator HappinessDecrease()
     {
@@ -35,7 +35,11 @@ public class ClownManager : MonoBehaviour
         while (GameManager.instance.happiness > 0)
         {
             GameManager.instance.happiness -= happinessDecrease;
+            if (GameManager.instance.happiness < (GameManager.instance.startHappiness / 2))
+                GameManager.instance.SadClown(); 
+
             yield return new WaitForSeconds(happinessDecreaseTime);
+
         }
     }
 
@@ -45,7 +49,11 @@ public class ClownManager : MonoBehaviour
         while (GameManager.instance.health > 0)
         {
             GameManager.instance.health -= healthDecrease;
+            if (GameManager.instance.health < (GameManager.instance.startHealth / 2))
+                GameManager.instance.SadClown();
+
             yield return new WaitForSeconds(healthDecreaseTime);
+
         }
     }
 
@@ -54,6 +62,9 @@ public class ClownManager : MonoBehaviour
         while (GameManager.instance.hunger > 0)
         {
             GameManager.instance.hunger -= hungerDecrease;
+            if (GameManager.instance.hunger < (GameManager.instance.startHunger / 2))
+                GameManager.instance.SadClown();
+
             yield return new WaitForSeconds(hungerDecreaseTime);
         }
     }
@@ -61,9 +72,14 @@ public class ClownManager : MonoBehaviour
     IEnumerator HygieneDecrease()
     {
         while (GameManager.instance.hygiene > 0)
-        {
+        {  
             GameManager.instance.hygiene -= hygieneDecrease;
+            if (GameManager.instance.hygiene < (GameManager.instance.startHygiene / 2))
+                GameManager.instance.SadClown(); 
+           
             yield return new WaitForSeconds(hygieneDecreaseTime);
+
+           
         }
     }
     IEnumerator SleepDecrease()
@@ -71,6 +87,9 @@ public class ClownManager : MonoBehaviour
         while (GameManager.instance.sleep > 0 && Buttons.instance.sleepActive == true)
         {
             GameManager.instance.sleep -= sleepDecrease;
+            if (GameManager.instance.sleep < (GameManager.instance.startSleep / 2))
+                GameManager.instance.SadClown();
+
             yield return new WaitForSeconds(sleepDecreaseTime);
         }
     }
