@@ -46,7 +46,7 @@ public class StatBars : MonoBehaviour
             fillBar.fillAmount = GameManager.instance.sleep / GameManager.instance.startSleep;
 
         if (skill)
-            fillBar.fillAmount = GameManager.instance.skill;
+            fillBar.fillAmount = GameManager.instance.skill / 100;
 
         if (fillBar.fillAmount > .75)
             fillBar.color = fullColour;

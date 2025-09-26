@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public float overallFeeling; 
+
     [Header("Care Stats")]
     public float happiness;
     public float health;
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
     [Header("Career Stats")]
     public float popularity;
     public float skill;
+    public float maxSkill;
 
     [Header("Game Stats")]
     public float money;
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour
     public float startHunger;
     public float startHygiene;
     public float startSleep;
+    public float startSkill;
 
     [Header("Clowm Images")]
     public SpriteRenderer clownSprite;
@@ -61,10 +65,16 @@ public class GameManager : MonoBehaviour
         startHunger = hunger;
         startHygiene = hygiene;
         startSleep = sleep;
+        startSkill = skill;
     }
 
     private void Update()
     {
+        
+        overallFeeling = ((happiness * .15f) + (health * .25f) + (hunger * .2f) + (hygiene * .15f) + (sleep * .25f));
+        if (overallFeeling > 100) 
+            overallFeeling = 100;
+
         StatBlock();
 
         ClownImages();

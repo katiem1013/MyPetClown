@@ -14,6 +14,7 @@ public class Buttons : MonoBehaviour
     public GameObject sleep;
     public GameObject clown;
     public GameObject pauseMenu;
+    public GameObject pracitce;
 
     [Header("Menus")]
     public bool foodMenuActive = false;
@@ -68,19 +69,42 @@ public class Buttons : MonoBehaviour
         }
     }
 
+    public void Practice()
+    {
+        SoundManagement.instance.UIClicking();
+
+        if (!sleepActive)
+        {
+            if (GameManager.instance.overallFeeling > 50 && GameManager.instance.sleep > (GameManager.instance.startSleep / 2) && GameManager.instance.health > (GameManager.instance.startHealth / 2) && GameManager.instance.hygiene > (GameManager.instance.startHygiene / 2) && GameManager.instance.hunger > (GameManager.instance.startHunger / 2) && GameManager.instance.happiness > (GameManager.instance.startHappiness / 2))
+            {
+                pracitce.SetActive(true);
+            }
+
+            else
+            {
+                GameManager.instance.SadClown();
+            }
+        }
+    }
+
     public void Perform()
     {
         SoundManagement.instance.UIClicking();
 
         if (!sleepActive)
         {
-            if (GameManager.instance.sleep >= 0 && GameManager.instance.hygiene >= 0 && GameManager.instance.health >= 0 && GameManager.instance.hunger >= 0 && GameManager.instance.happiness >= 0)
+            if (GameManager.instance.overallFeeling > 50 && GameManager.instance.sleep > (GameManager.instance.startSleep/2) && GameManager.instance.health > (GameManager.instance.startHealth / 2) && GameManager.instance.hygiene > (GameManager.instance.startHygiene / 2) && GameManager.instance.hunger > (GameManager.instance.startHunger / 2) && GameManager.instance.happiness > (GameManager.instance.startHappiness / 2))
             {
                 float moneyGained = ((GameManager.instance.skill / (GameManager.instance.sleep + GameManager.instance.health + GameManager.instance.hygiene + GameManager.instance.hunger)) * GameManager.instance.happiness) * 5;
                 GameManager.instance.money += Mathf.Ceil(moneyGained);
                 GameManager.instance.sleep -= Mathf.Ceil(moneyGained);
 
                 print(moneyGained);
+            }
+
+            else 
+            {
+                GameManager.instance.SadClown();
             }
         }
     }
